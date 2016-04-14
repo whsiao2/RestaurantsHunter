@@ -67,6 +67,9 @@ public class MainActivity extends AppCompatActivity
     private GoogleApiClient mGoogleApiClient;
     private LocationRequest mLocationRequest;
 
+    //When click a Google Map Marker, this function would be callbacked
+    //This function handles to show a custom dialog which shows the
+    //simplified restaurant info.
     @Override
     public boolean onMarkerClick(final Marker marker) {
 
@@ -101,7 +104,8 @@ public class MainActivity extends AppCompatActivity
         TextView tvCountry = (TextView) d.findViewById(R.id.ResCountry);
         tvCountry.setText(res.getCountry());
 
-
+        //When the comment button is clicked, show CommentActivity
+        //and put the chosen restaurant object to it, then close this custom dialog
         Button dialog_btn = (Button) d.findViewById(R.id.btnComment);
         dialog_btn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -128,6 +132,7 @@ public class MainActivity extends AppCompatActivity
         return true;
     }
 
+    //When the MainActivity is created, it would set up Google map service.
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -146,6 +151,7 @@ public class MainActivity extends AppCompatActivity
         mMapFragment = ((MapFragment) getFragmentManager().findFragmentById(R.id.map));
         mMapFragment.getMapAsync(this); //Call back onMapReady() to set up GoogleMap
 
+        //When click this button, show RestaurantListActivity
         mListBtn = (Button) findViewById(R.id.Btn_List);
         mListBtn.setOnClickListener(new View.OnClickListener() {
             @Override
