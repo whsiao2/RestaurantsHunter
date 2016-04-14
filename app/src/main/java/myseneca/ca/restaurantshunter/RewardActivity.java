@@ -9,6 +9,8 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 
+//RewardActivity handles how to display the awards
+//according to the number of visited restaurants
 public class RewardActivity extends AppCompatActivity {
 
     private int mRewardLevel;

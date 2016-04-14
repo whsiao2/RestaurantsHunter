@@ -39,14 +39,18 @@ public class RestaurantListActivity extends AppCompatActivity {
         mRewards = getResources().getStringArray(R.array.rewards_array);
 
         //Ref: http://sourcey.com/android-custom-centered-actionbar-with-material-design/
+        //use custom toolbar that includes a home button
         Toolbar toolbar = (Toolbar) findViewById(R.id.list_toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
 
+        //Get all commented (visited) restaurants
         mRestaurantList = MainActivity.mDb.getSpecificRestaurants(Restaurant.KEY_rate + " > 0 OR " +
                                                                   Restaurant.KEY_comment + " != '' OR " +
                                                                   Restaurant.KEY_imgs + " != ''");
+        //For checking if the numbers of visited restaurants
+        //could be allowed to get a reward.
         String rankName = checkLevel(mRestaurantList.size());
         if (!rankName.equals("")) {
             int level = 1;
@@ -56,6 +60,8 @@ public class RestaurantListActivity extends AppCompatActivity {
                 }
                 level++;
             }
+            //If the level is satisfied to get a award, pop up a dialog to notice user
+            //the mRewardLevel is recorded in the file: RH_rewards.txt
             mRewardLevel = Integer.parseInt(ReadRewardFile());
             if (level > mRewardLevel) {
                 AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(RestaurantListActivity.this);
@@ -142,7 +148,7 @@ public class RestaurantListActivity extends AppCompatActivity {
     public String ReadRewardFile() {
         File sdCardDir = new File(Environment.getExternalStorageDirectory().getAbsolutePath(), "/" + MainActivity.RH_PHOTO_FOLDER);
         File myFile = new File(sdCardDir.getAbsolutePath(), MainActivity.RH_REWARD_FILE);
-        if (!myFile.exists()) //If
+        if (!myFile.exists())
             WriteRewardFile(0);
         StringBuilder sb = new StringBuilder();
 

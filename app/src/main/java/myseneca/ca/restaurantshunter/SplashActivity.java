@@ -18,9 +18,13 @@ import java.io.InputStream;
 //Refs: http://stackoverflow.com/questions/5486789/how-do-i-make-a-splash-screen
 //      https://www.youtube.com/watch?v=BAJVM5QBZZk
 //      http://www.41post.com/4588/programming/android-coding-a-loading-screen-part-1
+//
+//SplashActivity is the entry activity.
+//Its major purpose is handling to create restaurants database,
+//parsing and transforming xml file info. to the database
 public class SplashActivity extends Activity {
 
-    /** Duration of wait **/
+    /** Duration of wait 2 sec.**/
     private final int SPLASH_DISPLAY_LENGTH = 2000;
 
     private XmlParser xmlParser;
@@ -33,8 +37,8 @@ public class SplashActivity extends Activity {
         this.requestWindowFeature(Window.FEATURE_NO_TITLE); //Set no title bar
         setContentView(R.layout.activity_splash);
 
-        _db = new DataBaseHelper(this);
-        xmlParser = new XmlParser();
+        _db = new DataBaseHelper(this); //create database
+        xmlParser = new XmlParser();//create xml parser
         new LoadViewTask().execute();
     }
 
@@ -78,11 +82,11 @@ public class SplashActivity extends Activity {
                 {
                     if(_db.isEmpty()) {
                         this.wait(850);
-                        //UK, London
+                        //parsing London.xml
                         InputStream in_london = getResources().openRawResource(R.raw.london);
                         xmlParser.parseFromFileStream(in_london, XmlParser.Cities.LONDON);
 
-                        //USA, NY state
+                        //parsing NYstate.xml
                         InputStream in_NY = getResources().openRawResource(R.raw.nystate);
                         xmlParser.parseFromFileStream(in_NY, XmlParser.Cities.YONKERS);
 

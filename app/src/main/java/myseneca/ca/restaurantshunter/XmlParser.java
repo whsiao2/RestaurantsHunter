@@ -13,6 +13,9 @@ import java.util.List;
 /**
  * Created by OceanHsiao on 16-04-02.
  */
+//This class handles the parsing xml files
+// and translates all necessary info. into Restaurant object
+// which will be recorded in List<Restaurant> restaurants
 public class XmlParser {
 
     public enum Cities {
@@ -40,6 +43,7 @@ public class XmlParser {
         num = 0;
     }
 
+    //for parsing london.xml
     public boolean parseLondonXML(XmlPullParser myParser){
         int event;
         String text = null;
@@ -99,6 +103,7 @@ public class XmlParser {
         return loadFinish;
     }
 
+    //For parsing nystate.xml file
     public boolean parseNYXML(XmlPullParser myParser, Cities eCity) {
         int event;
         String text = null;
@@ -182,6 +187,8 @@ public class XmlParser {
         return loadFinish;
     }
 
+    //This function receives file inputstream, and city info.
+    //The parser will accord to the city info. to choose the matched parser.
     public boolean parseFromFileStream(InputStream fileStream, Cities city) {
         boolean parseRes = false;
         try {
@@ -216,6 +223,9 @@ public class XmlParser {
         return parseRes;
     }
 
+    //Since the element is described like this:
+    // <BusinessType>Restaurant/Cafe/Canteen</BusinessType>
+    // in London.xml
     public boolean isRestaurantForLondon(String desc) {
         boolean res = false;
 
@@ -229,6 +239,9 @@ public class XmlParser {
         return res;
     }
 
+    //Since the element is described like this:
+    // <description>Food Service Establishment - Restaurant</description>
+    //in nystate.xml
     public boolean isRestaurantForNY(String desc) {
         boolean res = false;
 

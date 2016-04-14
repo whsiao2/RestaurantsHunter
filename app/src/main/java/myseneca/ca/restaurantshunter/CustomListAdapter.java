@@ -22,13 +22,13 @@ import java.util.List;
  * Created by OceanHsiao on 16-04-10.
  */
 // Ref: http://www.androidhive.info/2014/07/android-custom-listview-with-image-and-text-using-volley/
+// It's a custom ListView adapter to handle each listview in RestaurantListActivity interactions
 public class CustomListAdapter extends BaseAdapter {
     private Activity mListActivity;
     private LayoutInflater inflater;
     private List<Restaurant> mRestaurantsItems;
     private Restaurant mChosenRestaurant;
     private List<Restaurant> mCheckedRestaurants;
-//    ImageLoader imageLoader = AppController.getInstance().getImageLoader();
 
     public CustomListAdapter(Activity activity, List<Restaurant> restaurantList) {
         this.mListActivity = activity;
@@ -61,6 +61,8 @@ public class CustomListAdapter extends BaseAdapter {
         if (convertView == null)
             convertView = inflater.inflate(R.layout.list_restaurants_content, null);
 
+        //Get image from /Picture/RestaurantsHunter/
+        // then decode it to be a thumbnail image and set it to R.id.defPhoto
         if(!mChosenRestaurant.getImages().equals("")) {
             Bitmap bmp = CommentActivity.decodeSampledBitmapFromFile(CommentActivity.mPhotosDir + "/"
                     + Restaurant.transToImageStringArray(mChosenRestaurant.getImages()).get(0) + ".jpg");
@@ -68,6 +70,7 @@ public class CustomListAdapter extends BaseAdapter {
             resImage.setImageBitmap(bmp);
         }
 
+        //Set-up restaurant name, address, postcode and country information
         TextView tvName = (TextView) convertView.findViewById(R.id.ResName);
         tvName.setText(mChosenRestaurant.getName());
         TextView tvAddr = (TextView) convertView.findViewById(R.id.ResAddr);
@@ -82,6 +85,9 @@ public class CustomListAdapter extends BaseAdapter {
         RatingBar ratingBar = (RatingBar) convertView.findViewById(R.id.rates);
         ratingBar.setRating(mChosenRestaurant.getRate());
 
+        //When the comment button clicked, it would start CommentActivity
+        //and put the chosen restaurant object into intent
+        //then close this activity.
         Button comment_btn = (Button) convertView.findViewById(R.id.btnComment);
         comment_btn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -99,6 +105,9 @@ public class CustomListAdapter extends BaseAdapter {
             }
         });
 
+        //There is a Restaurant list<> - mCheckedRestaurants
+        // to record which visited restaurants will be send later via email
+        //When Checkbox checkes, it will add the matched restaurant to mCheckedRestaurants
         final CheckBox check = (CheckBox)convertView.findViewById(R.id.checkBox);
         check.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
