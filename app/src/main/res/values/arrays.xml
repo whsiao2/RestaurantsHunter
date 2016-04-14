@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="rewards_array">
+        <item>Rookie</item>
+        <item>Beginner</item>
+        <item>Junior</item>
+        <item>Senior</item>
+        <item>Amateur</item>
+        <item>Semi-Pro</item>
+        <item>Pro</item>
+        <item>National Pro</item>
+        <item>World Pro</item>
+        <item>Master</item>
+    </string-array>
+</resources>

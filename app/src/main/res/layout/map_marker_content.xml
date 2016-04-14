@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="250sp"
+    android:layout_height="110sp"
+    android:background="#b0000000">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginBottom="5dp"
+        android:layout_marginTop="10dp"
+        android:text="@string/ResName"
+        android:id="@+id/ResName"
+        android:textStyle="bold|italic"
+        android:textColor="#ffffff"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="10dp"
+        android:text="@string/ResAddr"
+        android:id="@+id/ResAddr"
+        android:layout_below="@+id/ResName"
+        android:textColor="#ffffff"
+        android:textSize="11sp"
+        android:layout_alignParentStart="true"
+        android:layout_toStartOf="@+id/defPhoto" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="10dp"
+        android:text="@string/ResPostCode"
+        android:id="@+id/ResPostCode"
+        android:layout_below="@+id/ResAddr"
+        android:layout_alignParentStart="false"
+        android:textColor="#ffffff"
+        android:textSize="11sp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="10dp"
+        android:text="@string/ResCountry"
+        android:id="@+id/ResCountry"
+        android:layout_below="@+id/ResPostCode"
+        android:textColor="#ffffff"
+        android:textSize="11sp" />
+
+    <RatingBar
+        android:layout_width="80dp"
+        android:layout_height="16dp"
+        android:layout_marginTop="3dp"
+        android:id="@+id/rates"
+        style="@style/CustomRatingBar"
+        android:numStars="5"
+        android:stepSize="1"
+        android:isIndicator="true"
+        android:layout_below="@+id/defPhoto"
+        android:layout_alignEnd="@+id/defPhoto" />
+
+    <Button
+        android:layout_width="30dp"
+        android:layout_height="25dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="5dp"
+        android:width="10dp"
+        android:height="10dp"
+        android:background="@drawable/comment"
+        android:id="@+id/btnComment"
+        android:clickable="true"
+        android:layout_below="@+id/defPhoto"
+        android:layout_centerHorizontal="true" />
+
+    <ImageView
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginRight="10dp"
+        android:id="@+id/defPhoto"
+        android:src="@drawable/add_image2"
+        android:layout_centerVertical="true"
+        android:layout_alignParentEnd="true"
+        android:contentDescription="@string/DefPhoto" />
+
+</RelativeLayout>

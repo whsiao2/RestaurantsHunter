@@ -1,0 +1,27 @@
+<resources>
+    <string name="app_name">Restaurants Hunter</string>
+    <string name="Splash">Restaurants Hunter</string>
+    <string name="title_activity_maps">Map</string>
+    <string name="ResName">Restaurant Name</string>
+    <string name="ResAddr">Restaurant Address</string>
+    <string name="ResCountry">Restaurant Country</string>
+    <string name="ResPostCode">Post Code</string>
+    <string name="btnComment">Comment</string>
+    <string name="CommStars">Comment Stars</string>
+    <string name="DefPhoto">Restaurant Photo</string>
+    <string name="title_activity_comment">Comments</string>
+    <string name="Comm_Rates">Rates</string>
+    <string name="Comm_ResName">Restaurant Name</string>
+    <string name="title_activity_restaurant_list">Visited Restaurants</string>
+    <string name="btn_list_text">My Restaurants</string>
+    <string name="list_is_empty">No Restaurant</string>
+    <string name="btn_rewards">Rewards</string>
+    <string name="btn_email">E-mail</string>
+    <string name="title_activity_photo_manager">PhotoManagerActivity</string>
+    <string name="title_activity_mail">MailActivity</string>
+    <string name="title_activity_reward"> == AWARDS == </string>
+    <string name="dlg_title_add_photo">Add Photo</string>
+    <string name="comment_txtview_comment">Comments</string>
+    <string name="comment_txtview_photos">Photos</string>
+    <string name="comment_imgbtn_default_photo">default photo</string>
+</resources>

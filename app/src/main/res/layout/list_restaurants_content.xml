@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="80sp"
+    android:background="#b0000000">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="3dp"
+        android:text="@string/ResName"
+        android:id="@+id/ResName"
+        android:textStyle="bold|italic"
+        android:textColor="#ffffff"
+        android:layout_toStartOf="@+id/rates"
+        android:layout_toEndOf="@+id/defPhoto" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="10dp"
+        android:text="@string/ResAddr"
+        android:id="@+id/ResAddr"
+        android:textColor="#ffffff"
+        android:textSize="11sp"
+        android:layout_below="@+id/ResName"
+        android:layout_toStartOf="@+id/btnComment"
+        android:layout_toEndOf="@+id/defPhoto" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="2dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginBottom="10dp"
+        android:text="@string/ResPostCode"
+        android:id="@+id/ResPostCode"
+        android:textColor="#ffffff"
+        android:textSize="11sp"
+        android:layout_below="@+id/ResAddr"
+        android:layout_toEndOf="@+id/defPhoto" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginBottom="10dp"
+        android:text="@string/ResCountry"
+        android:id="@+id/ResCountry"
+        android:textColor="#ffffff"
+        android:textSize="11sp"
+        android:layout_below="@+id/ResAddr"
+        android:layout_toEndOf="@+id/ResPostCode" />
+
+    <RatingBar
+        android:layout_width="80dp"
+        android:layout_height="16dp"
+        android:id="@+id/rates"
+        style="@style/CustomRatingBar"
+        android:numStars="5"
+        android:stepSize="1"
+        android:isIndicator="true"
+        android:layout_alignTop="@+id/ResName"
+        android:layout_alignEnd="@+id/btnComment" />
+
+    <Button
+        android:layout_width="30dp"
+        android:layout_height="25dp"
+        android:layout_marginRight="10dp"
+        android:width="10dp"
+        android:height="10dp"
+        android:id="@+id/btnComment"
+        android:clickable="true"
+        android:layout_centerVertical="true"
+        android:layout_alignParentEnd="true"
+        android:background="@drawable/comment" />
+
+    <ImageView
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginRight="10dp"
+        android:layout_centerVertical="true"
+        android:id="@+id/defPhoto"
+        android:src="@drawable/add_image2"
+        android:contentDescription="@string/DefPhoto"
+        android:layout_toEndOf="@+id/checkBox" />
+
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/checkBox"
+        android:layout_centerVertical="true" />
+
+</RelativeLayout>
